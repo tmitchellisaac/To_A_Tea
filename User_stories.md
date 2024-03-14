@@ -35,9 +35,9 @@
 
 ## US #2 --> Cancellation
 
-As a FE developer when I send a POST request to the endpoint
+As a FE developer when I send a PATCH request to the endpoint
 
-'domain/api/v1/customers/customer_id/subscriptions/sub_id/cancel`
+'domain/api/v1/subscriptions/subscription_id/cancel`
 
 - The status of the customer's subscription is changed to 'cancelled'
 - And I recieve the following data back

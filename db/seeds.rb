@@ -10,3 +10,5 @@
 customer_1 = Customer.create!(first_name: "Donna", last_name: "Bisson", address: "4444 Yellow Tail Dr", email: "donna@gmail.com")
 camomille = Tea.create!(name: "Camomille", description: "camomille tea", brew_time: "7 minutes", temperature: "170 degrees")
 sleepy_tea = Tea.create!(name: "Sleepy Tea", description: "sleepy time mix", brew_time: "8 minutes", temperature: "170 degrees")
+
+subscription_1 = Subscription.create!(customer_id: customer_1.id, tea_id: camomille.id, price: 1400, frequency: "1", title: "Weekly Camomille", status: 1)
