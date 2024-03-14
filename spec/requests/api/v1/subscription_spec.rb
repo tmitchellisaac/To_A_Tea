@@ -1,6 +1,5 @@
 require "rails_helper"
 
-
 RSpec.describe "Customer Subscription" do
   it "can create a tea subscription for a customer" do
   customer_1 = Customer.create!(first_name: "Donna", last_name: "Bisson", address: "4444 Yellow Tail Dr", email: "donna@gmail.com")
@@ -28,41 +27,5 @@ RSpec.describe "Customer Subscription" do
   expect(json_response[:data][:attributes][:customer_id]).to eq(customer_1.id)
   expect(json_response[:data][:attributes][:tea_id]).to eq(camomille.id)
   expect(json_response[:data][:relationships]).to be_a(Hash)
-
   end
 end
-
-# User Stories
-
-## US #1 --> Subscription
-# - As a FE developer/user,
-# - when I send a POST request to the endpoint 
-# `<domain>/api/v1/customers/customer_id/subscription`
-  
-# - with json body like: 
-# ```
-#   {
-#     tea_id: 1
-#     frequency: 1
-#     price: 1400
-#     title: "Weekly Camomille"
-#   }
-# ```
-# - A subscription for the given user is created on the BE,
-# - And I recieve the JSON response:
-# ```
-#   {
-#   "data": {
-#     "type": "subscription",
-#     "id": "1",
-#     "attributes": {
-#       "title": "Weekly Camomille",
-#       "frequency": "1",
-#       "price": "1400"
-#       "status": "1"
-#       "tea_id": "1"
-#       "customer_id": "1"
-#     }
-#   }
-# }
-# ```
