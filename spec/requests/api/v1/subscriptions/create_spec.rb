@@ -1,6 +1,6 @@
 require "rails_helper"
 
-RSpec.describe "Customer Subscription" do
+RSpec.describe "Create Customer Subscription" do
   it "can create a tea subscription for a customer" do
   customer_1 = Customer.create!(first_name: "Donna", last_name: "Bisson", address: "4444 Yellow Tail Dr", email: "donna@gmail.com")
   camomille = Tea.create!(name: "Camomille", description: "camomille tea", brew_time: "7 minutes", temperature: "170 degrees")
