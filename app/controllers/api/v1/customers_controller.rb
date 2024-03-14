@@ -1,6 +1,4 @@
-class Customers < ApplicationController
+class Api::V1::Customers < ApplicationController
 
   
-
-
 end
