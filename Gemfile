@@ -43,15 +43,17 @@ group :development, :test do
   gem "pry"
   gem "factory_bot_rails"
   gem "faker"
-  gem "simplecov"
   gem "shoulda-matchers"
   gem "launchy"
   gem "orderly"
   gem "capybara"
+  gem 'simplecov', require: false, group: :test
 end
 
 group :development do
   # Speed up commands on slow machines / big apps [https://github.com/rails/spring]
   # gem "spring"
 end
+
+
 
