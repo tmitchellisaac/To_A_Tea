@@ -1,19 +1,18 @@
 require "rails_helper"
 
-RSpec.describe "Customer Subscription" do
+RSpec.describe "Create Customer Subscription" do
   it "can create a tea subscription for a customer" do
   customer_1 = Customer.create!(first_name: "Donna", last_name: "Bisson", address: "4444 Yellow Tail Dr", email: "donna@gmail.com")
   camomille = Tea.create!(name: "Camomille", description: "camomille tea", brew_time: "7 minutes", temperature: "170 degrees")
 
   subscription_data = {
-        customer_id: customer_1.id,
         tea_id: camomille.id,
         frequency: 1,
         price: 1400,
         title: "Weekly Camomille"
       }
   
-  post "/api/v1/subscriptions", headers: {"CONTENT_TYPE" => "application/json"}, params: JSON.generate(subscription_data)
+  post "/api/v1/customers/#{customer_1.id}/subscriptions", headers: {"CONTENT_TYPE" => "application/json"}, params: JSON.generate(subscription_data)
   
   expect(response).to be_successful
   json_response = JSON.parse(response.body, symbolize_names: true)
