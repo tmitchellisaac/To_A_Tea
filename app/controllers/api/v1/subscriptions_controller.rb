@@ -1,14 +1,24 @@
 class Api::V1::SubscriptionsController < ApplicationController
 
   def create
-    subscription = Subscription.create!(strong_params.merge(status: 1))
+    subscription = Subscription.create!(strong_params.merge(status: "active"))
     render json: SubscriptionSerializer.new(subscription)
+  end
+
+  def update
+    subscription = Subscription.find(params[:id])
+    subscription.update(strong_params)
+    if params[:status] == "cancelled" && subscription.save
+      render json: {success: "Subscription Successfully Cancelled"}
+    else
+      render json: {error: "Functionality not created yet, please be patient"}
+    end
   end
 
   private
 
   def strong_params
-    params.permit(:customer_id, :tea_id, :frequency, :price, :title)
+    params.permit(:customer_id, :tea_id, :frequency, :price, :title, :status)
   end
 
 end
