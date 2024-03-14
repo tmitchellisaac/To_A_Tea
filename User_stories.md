@@ -3,7 +3,7 @@
 ## US #1 --> Subscription
 - As a FE developer/user,
 - when I send a POST request to the endpoint 
-`<domain>/api/v1/customers/customer_id/subscription`
+`<domain>/api/v1/customers/customer_id/subscriptions`
   
 - with json body like: 
 ```
