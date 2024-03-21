@@ -147,3 +147,6 @@ Which will yield a response similar to:
     ]
 }
 ```
+## Schema-
+
+![alt text](image.png)
