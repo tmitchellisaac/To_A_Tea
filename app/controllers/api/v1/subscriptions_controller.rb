@@ -4,12 +4,14 @@ class Api::V1::SubscriptionsController < ApplicationController
     customer = Customer.find(params[:customer_id])
     subscriptions = customer.subscriptions
     render json: SubscriptionSerializer.new(subscriptions)
+    #definitely could add some error handling here
   end
 
 
   def create
     subscription = Subscription.create!(strong_params.merge(status: "active"))
     render json: SubscriptionSerializer.new(subscription)
+    #definitely could add some error handling here too
   end
 
   def update
